@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GainGain — Get the App</title>
+  <script>
+    // TODO: replace these two URLs with the real store links
+    var ANDROID_URL = "https://play.google.com/store/apps/details?id=REPLACE.PACKAGE.ID";
+    var IOS_URL     = "https://apps.apple.com/app/idREPLACE_APP_ID";
+    var FALLBACK_URL = ANDROID_URL; // desktop / unknown devices land here
+
+    var ua = navigator.userAgent || "";
+    if (/android/i.test(ua)) {
+      location.replace(ANDROID_URL);
+    } else if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && "ontouchend" in document)) {
+      // second check catches iPads that report themselves as Mac
+      location.replace(IOS_URL);
+    } else {
+      location.replace(FALLBACK_URL);
+    }
+  </script>
+</head>
+<body>
+  <noscript>
+    <p>Download GainGain:</p>
+    <p><a href="https://play.google.com/store/apps/details?id=REPLACE.PACKAGE.ID">Android (Google Play)</a></p>
+    <p><a href="https://apps.apple.com/app/idREPLACE_APP_ID">iPhone (App Store)</a></p>
+  </noscript>
+  <p>Redirecting you to the app store&hellip;</p>
+</body>
+</html>
